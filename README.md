@@ -1,24 +1,40 @@
-# MyProject
-for assessment purpose
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+This project is simple Hello World Project.
 	
 ## Technologies
 Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+* Maven version: 3.2.5git 
+* Git version: 2.19.2
+* docker Version : 19.03.8
+* AWS Instance for running Docker container
 	
 ## Setup
-To run this project, install it locally using npm:
+1. To run this project i have done maven setup in my local and created the .java files with the dir structure as src/main/java/com/mycompany/app/App.java 
+2. later by executing the mvn package command, the "mod-1-1.0-SNAPSHOT.jar" is created by using the pom xml file. 
+3. Then i have pushed the src code to the Github.
+4. I have used the Amazon Ec2 instance to launch the container by installing the docker in it.
+5. Application was exposed to the port 80 and i am able to access the application and then the image was pushed to the Dockerhub.
+
 
 ```
-$ cd ../lorem
-$ npm install
-$ npm start
+$ mvn clean
+$ mvn package
+$ git add .
+$ git commit 
+$ git push kakumanu17/MyProject
+$ sudo yum update -y
+$ sudo yum install -y docker 
+$ sudo service docker start
+$ touch Dockerfile
+$ docker build -t hello-world .
+$ docker run -t -i -p 80:80 hello-world
+$ docker login --username=kakumanu17
+$ docker push kakumanu17/kakumanu123:hello-world-Bharat
+
+
 ```
